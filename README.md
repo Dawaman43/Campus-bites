@@ -20,7 +20,7 @@ and affordable meal access right from their smartphones.
 
 ## 📸 Screenshots
 
-> _Coming soon: Add screenshots or screen recordings here to show the UI._
+> _Coming soon:  screenshots or screen recordings  showing the UI._
 
 ---
 
