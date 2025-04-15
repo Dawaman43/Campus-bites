@@ -1,4 +1,5 @@
 import highlight from "@/assets/images/highlight.png";
+import highlight2 from "@/assets/images/highlight2.png";
 import icon from "@/assets/images/icon.png"
 import food1 from "@/assets/images/food/chechebsa.jpg"
 import food2 from "@/assets/images/food/egg-firfir.jpg"
@@ -16,6 +17,7 @@ import food11 from "@/assets/images/food/firfir2.jpg"
 
 export const images = {
   highlight,
+  highlight2,
   icon,
   food1,
   food2,

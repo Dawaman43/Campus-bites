@@ -25,7 +25,7 @@ export default function Index() {
           <View className="bg-primary p-10 w-100% 
           h-60 mt-0 justify-end rounded-b-2xl">
           <View className="">
-            <Image className="w-36 h-36 "source={images.icon}/>
+            <Image className="w-36 h-36 justify-center text-center content-center"source={images.icon}/>
           </View>
             <View>
               <Greeting />
