@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput, TouchableOpacity, Linking, Alert } from "react-native";
+import { TextInput, TouchableOpacity, Linking, Alert, ScrollView } from "react-native";
 import { View, Text } from "react-native";
 
 export default function ContactTab() {
@@ -18,24 +18,26 @@ export default function ContactTab() {
     };
 
     return (
-        <View className="flex-1 bg-gray-100 p-4">
+        <ScrollView>
+            <View className="flex-1 bg-gray-100 p-4">
             {/* Contact Info */}
             <Text className="text-2xl font-bold text-gray-800 mb-4">Contact Info</Text>
 
-            <View className="mb-4 bg-white rounded-xl p-4 shadow">
-                <Text className="text-base text-gray-700 mb-1">
+            <View className="mb-4 bg-green-600 rounded-xl p-4 shadow">
+                <Text className="text-xl font-bold text-white mb-1">
                     📱 Phone: <Text className="text-blue-600" onPress={() => Linking.openURL('tel:+251912345678')}>+251 912 345 678</Text>
                 </Text>
-                <Text className="text-base text-gray-700 mb-1">
+                <Text className="text-xl font-bold text-white mb-1">
                     📍 Location: Adama, Adama Science and Technology University
                 </Text>
-                <Text className="text-base text-gray-700 mb-1">
+                <Text className="text-xl font-bold text-white mb-1">
                     📧 Email: <Text className="text-blue-600" onPress={() => Linking.openURL('mailto:CampusBite@gmail.com')}>CampusBite@gmail.com</Text>
                 </Text>
-                <Text className="text-base text-gray-700 mb-1">
+                <Text className="text-xl font-bold text-white mb-1">
                     📲 Socials:
                 </Text>
                 <View className="ml-4">
+
                     <Text className="text-blue-600" onPress={() => Linking.openURL('https://t.me/campusbite')}>Telegram</Text>
                     <Text className="text-blue-600" onPress={() => Linking.openURL('https://instagram.com/campusbite')}>Instagram</Text>
                 </View>
@@ -71,11 +73,13 @@ export default function ContactTab() {
             />
 
             <TouchableOpacity
-                className="bg-blue-600 p-4 rounded-xl items-center  mb-20"
+                className="bg-green-600 p-4 rounded-xl items-center  mb-20"
                 onPress={handleSubmit}
             >
                 <Text className="text-white text-lg font-semibold">Send Message</Text>
             </TouchableOpacity>
         </View>
+        </ScrollView>
+        
     );
 }

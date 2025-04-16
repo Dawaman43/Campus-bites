@@ -10,39 +10,55 @@ import { StatusBar } from 'react-native';
 
 
 const TabIcon = ({ focused, icon, title }: any) => {
-    if(focused){
-        return(
-            <ImageBackground 
-                                source={images.highlight2}
-                                className="flex flex-row w-full flex-1 
-                                min-w-[112px] min-h-16 mt-4 justify-center 
-                                items-center rounded-full overflow-hidden"
-                            >
-                                <Image source={icon} tintColor="#151312" className="size-5" />
-                                <Text className="text-white text-base font-semibold ml-2">{title}</Text>
-                            </ImageBackground>
-        )
+    if (focused) {
+        return (
+            <View
+                style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingHorizontal: 12,
+                    paddingVertical: 8,
+                    backgroundColor: '#16A34A', // or use an image background only on native
+                    borderRadius: 25,
+                    minWidth: 112,
+                    height: 52,
+                }}
+            >
+                <Image
+                    source={icon}
+                    style={{ width: 20, height: 20, tintColor: '#151312' }}
+                    resizeMode="contain"
+                />
+                <Text style={{ color: '#fff', fontWeight: '600', marginLeft: 8 }}>{title}</Text>
+            </View>
+        );
     }
-    return(
-        <View className="justify-center items-center
-        mt-4 rounded-full">
-            <Image source={icon} tintColor="#A8B5DB"
-            className="size-6" />
+
+    return (
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Image
+                source={icon}
+                style={{ width: 24, height: 24, tintColor: '#A8B5DB' }}
+                resizeMode="contain"
+            />
         </View>
-    )
-}
+    );
+};
+
 
 const _Layout = () => {
   return (
-    <Tabs 
+    <Tabs
         screenOptions={{
             tabBarShowLabel: false,
             tabBarItemStyle: {
-                width: '100%',
-                height: '100%',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                paddingVertical: 4,
+                paddingHorizontal: 8,
             },
+
 
             tabBarStyle: {
                 backgroundColor: '#f1faee',
@@ -53,7 +69,7 @@ const _Layout = () => {
                 position: 'absolute',
                 overflow: 'hidden',
                 borderWidth: 1,
-                
+
             }
         }}
     >
