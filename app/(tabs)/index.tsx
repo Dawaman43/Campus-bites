@@ -22,12 +22,17 @@ export default function Index() {
         contentContainerStyle={{
           minHeight: "100%", paddingBottom: 10
         }}>
-          <View className="bg-primary p-10 w-100% 
-          h-60 mt-0 justify-end rounded-b-2xl">
-          <View className="">
-            <Image className="w-36 h-36 justify-center text-center content-center"source={images.icon}/>
-          </View>
-            <View>
+            <View className="bg-green-600 p-10 w-full h-40 justify-end rounded-b-2xl">
+
+            <View className="items-center justify-center">
+                  <Image
+                      source={images.icon}
+                      className="w-36 h-36"
+                      resizeMode="contain"
+                  />
+              </View>
+
+              <View>
               <Greeting />
             </View>
             <Text className="text-red-600 font-bold font-roboto" >
@@ -39,7 +44,7 @@ export default function Index() {
             <Text className="font-bold text-2xl text-black-600 m-4 font-roboto">
               Morning Meal
             </Text>
-            <View className="flex-1 flex-row flex-wrap gap-0">
+            <View className="flex-1 flex-row flex-wrap justify-evenly bg-green-600 p-4 rounded-xl">
                 <Card imageSource={images.food1} text="ጨጨብሳ" fee={100}/>
                 <Card imageSource={images.food2} text="እንቁላል ፍርፍር" fee={80}/>
                 <Card imageSource={images.food3} text="ፍርፍር" fee={90}/>
@@ -57,7 +62,7 @@ export default function Index() {
             <Text className="font-bold text-2xl text-black-600 m-4">
               Afternoon Meal
             </Text>
-            <View className="flex-1 flex-row flex-wrap gap-0">
+            <View className="flex-1 flex-row flex-wrap justify-evenly bg-green-600 p-4 rounded-xl">
                 <Card imageSource={images.food1} text="ጨጨብሳ" fee={100}/>
                 <Card imageSource={images.food2} text="እንቁላል ፍርፍር" fee={80}/>
                 <Card imageSource={images.food3} text="ፍርፍር" fee={90}/>
@@ -76,7 +81,7 @@ export default function Index() {
             <Text className="font-bold text-2xl text-black-600 m-4 font-roboto">
               Evening Meal
             </Text>
-            <View className="flex-1 flex-row flex-wrap gap-0">
+            <View className="flex-1 flex-row flex-wrap justify-evenly bg-green-600 p-4 rounded-xl mb-20">
             <Card imageSource={images.food1} text="ጨጨብሳ" fee={100}/>
                 <Card imageSource={images.food2} text="እንቁላል ፍርፍር" fee={80}/>
                 <Card imageSource={images.food3} text="ፍርፍር" fee={90}/>
