@@ -54,7 +54,7 @@ const App = () => {
             </TouchableOpacity>
           </Animatable.View>
 
-          {/* Email Login Button */}
+          
           <Animatable.View animation="fadeInUp" duration={1000} delay={600} className="w-full">
             <TouchableOpacity
               className="bg-orange-500 rounded-full py-4 px-6 shadow-lg shadow-black/30"
@@ -67,7 +67,6 @@ const App = () => {
             </TouchableOpacity>
           </Animatable.View>
 
-          {/* Sign Up Prompt */}
           <Animatable.View animation="fadeIn" duration={1000} delay={800} className="mt-8">
             <Text className="text-gray-300">
               Don't have an account?{' '}
