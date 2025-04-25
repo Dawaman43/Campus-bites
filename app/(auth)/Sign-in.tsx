@@ -49,11 +49,11 @@ const Signup = () => {
       <View style={{ backgroundColor: 'white', flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
         <Image source={require('../../assets/images/icon.png')} style={{ width: 160, height: 160 }} />
         <Text style={styles.signupText}>Sign Up</Text>
-        <Text style={{ marginBottom: 29, fontSize: 13 }}>please fill the form to join us</Text>
+        <Text style={{ marginBottom: 29, fontSize: 13 }}>Please fill the form to join us</Text>
 
         <TextInput
           style={styles.textInput}
-          placeholder='User name'
+          placeholder="User name"
           placeholderTextColor="black"
           value={username}
           onChangeText={setUsername}
@@ -61,7 +61,7 @@ const Signup = () => {
         />
         <TextInput
           style={styles.textInput}
-          placeholder='Email'
+          placeholder="Email"
           placeholderTextColor="black"
           value={email}
           onChangeText={setEmail}
@@ -71,43 +71,29 @@ const Signup = () => {
         <View style={styles.passwordContainer}>
           <TextInput
             style={styles.passwordInput}
-            placeholder='Password'
+            placeholder="Password"
             placeholderTextColor="black"
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!showPassword}
             autoCapitalize="none"
           />
-          <TouchableOpacity
-            onPress={() => setShowPassword(!showPassword)}
-            style={styles.eyeIcon}
-          >
-            <Ionicons
-              name={showPassword ? 'eye-off' : 'eye'}
-              size={24}
-              color="gray"
-            />
+          <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={styles.eyeIcon}>
+            <Ionicons name={showPassword ? 'eye-off' : 'eye'} size={24} color="gray" />
           </TouchableOpacity>
         </View>
         <View style={styles.passwordContainer}>
           <TextInput
             style={styles.passwordInput}
-            placeholder='Confirm Password'
+            placeholder="Confirm Password"
             placeholderTextColor="black"
             value={confirmPassword}
             onChangeText={setConfirmPassword}
             secureTextEntry={!showConfirmPassword}
             autoCapitalize="none"
           />
-          <TouchableOpacity
-            onPress={() => setShowConfirmPassword(!showConfirmPassword)}
-            style={styles.eyeIcon}
-          >
-            <Ionicons
-              name={showConfirmPassword ? 'eye-off' : 'eye'}
-              size={24}
-              color="gray"
-            />
+          <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)} style={styles.eyeIcon}>
+            <Ionicons name={showConfirmPassword ? 'eye-off' : 'eye'} size={24} color="gray" />
           </TouchableOpacity>
         </View>
 
@@ -124,7 +110,7 @@ const Signup = () => {
         <View style={{ flexDirection: 'row', gap: 5, marginTop: 10, width: '85%', justifyContent: 'center' }}>
           <Text style={{ fontSize: 14, color: 'black' }}>You already have an account?</Text>
           <Pressable onPress={() => router.push('/(auth)/Login')}>
-            <Text style={{ color: "#ffcc00", fontWeight: 'bold' }}>Sign in</Text>
+            <Text style={{ color: '#ffcc00', fontWeight: 'bold' }}>Sign in</Text>
           </Pressable>
         </View>
 
@@ -171,17 +157,19 @@ const styles = StyleSheet.create({
     width: '85%',
     borderRadius: 4,
     marginBottom: 18,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     color: 'black',
   },
   signupButton: {
-    backgroundColor: "orange",
+    backgroundColor: 'orange',
     width: '85%',
     paddingVertical: 15,
     borderRadius: 4,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   disabledButton: {
-    backgroundColor: '#ffa50099',
     opacity: 0.6,
   },
   passwordContainer: {

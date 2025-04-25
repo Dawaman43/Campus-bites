@@ -9,14 +9,14 @@ export const config = {
   storageId: '680a90c10020735ce532',
 };
 
-const client: Client = new Client()
+const client = new Client()
   .setEndpoint(config.endpoint)
   .setProject(config.projectId)
   .setPlatform(config.platform);
 
-const account: Account = new Account(client);
-const avatars: Avatars = new Avatars(client);
-const databases: Databases = new Databases(client);
+const account = new Account(client);
+const avatars = new Avatars(client);
+const databases = new Databases(client);
 
 export const createUser = async (
   email: string,
@@ -49,7 +49,6 @@ export const createUser = async (
 
     return newUser;
   } catch (error: any) {
-    console.error('CreateUser Error:', error);
     throw new Error(error.message || 'An error occurred during user creation');
   }
 };
@@ -59,27 +58,17 @@ export const Login = async (
   password: string
 ): Promise<Models.Session> => {
   try {
-    console.log('Login Attempt:', { email, password: password ? '****' : 'MISSING' });
-    
     if (!email || !password) {
       throw new Error('Email and password are required');
     }
 
-  
     try {
-      const currentSession = await account.getSession('current');
-      console.log('Existing session found:', currentSession);
       await account.deleteSession('current');
-      console.log('Existing session deleted');
-    } catch (e) {
-      console.log('No active session or error checking session:', e.message);
-    }
+    } catch (error: unknown) {}
 
     const session = await account.createEmailPasswordSession(email, password);
-    console.log('New session created:', session);
     return session;
   } catch (error: any) {
-    console.error('Login Error:', error);
     throw new Error(error.message || 'Login failed');
   }
 };
@@ -87,9 +76,7 @@ export const Login = async (
 export const Logout = async (): Promise<void> => {
   try {
     await account.deleteSession('current');
-    console.log('Session deleted successfully');
   } catch (error: any) {
-    console.error('Logout Error:', error);
     throw new Error(error.message || 'Logout failed');
   }
 };
@@ -97,10 +84,8 @@ export const Logout = async (): Promise<void> => {
 export const getCurrentSession = async (): Promise<Models.Session | null> => {
   try {
     const session = await account.getSession('current');
-    console.log('Current session retrieved:', session);
     return session;
   } catch (error: any) {
-    console.log('No current session or error:', error.message);
     return null;
   }
 };

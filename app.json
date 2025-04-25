@@ -5,7 +5,7 @@
       "version": "1.0.0",
       "orientation": "portrait",
       "icon": "./assets/images/icon.png",
-      "scheme": "myapp",
+      "scheme": "com.campus.bites",
       "userInterfaceStyle": "automatic",
       "newArchEnabled": true,
       "androidStatusBar": {
@@ -18,7 +18,18 @@
         "adaptiveIcon": {
           "foregroundImage": "./assets/images/icon.png",
           "backgroundColor": "#ffffff",
-          "package" : "com.campus.bites"
+          "package" : "com.campus.bites",
+          "intentFilters": [
+      {
+        "action": "VIEW",
+        "data": [
+          {
+            "scheme": "com.campus.bites"
+          }
+        ],
+        "category": ["BROWSABLE", "DEFAULT"]
+      }
+    ]
         }
       },
       "web": {
