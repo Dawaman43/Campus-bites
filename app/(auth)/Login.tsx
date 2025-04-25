@@ -13,6 +13,7 @@ import { useRouter } from 'expo-router';
 import Modal from 'react-native-modal';
 import { Ionicons } from '@expo/vector-icons';
 import { Login, getCurrentSession, Logout } from '@/lib/appwrite';
+import { getUserRole } from '@/lib/appwrite';
 
 const SignUp = () => {
   const router = useRouter();
@@ -25,7 +26,6 @@ const SignUp = () => {
   const [isModalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    
     const checkSession = async () => {
       const session = await getCurrentSession();
       if (session) {
@@ -49,8 +49,22 @@ const SignUp = () => {
 
     try {
       await Login(email.trim(), password.trim());
-      console.log('Login successful, navigating to Home');
-      router.replace('/(tabs)/home'); 
+      console.log('Login successful, checking role');
+
+      
+      const session = await getCurrentSession();
+      if (session) {
+        const role = await getUserRole(session.userId);
+
+       
+        if (role === 'hotel_manager') {
+          router.replace('/(manager)/Home'); 
+        } else if (role === 'delivery') {
+          router.replace('/(delivery)/home'); 
+        } else {
+          router.replace('/(tabs)/home'); 
+        }
+      }
     } catch (error: any) {
       console.error('Login error in handleLogin:', error);
       setError(error.message || 'An error occurred during login');
@@ -120,7 +134,7 @@ const SignUp = () => {
 
         <View style={{ flexDirection: 'row', gap: 5, marginTop: 10, width: '85%', justifyContent: 'center' }}>
           <Text style={{ fontSize: 14, color: 'black' }}>Don't have an account?</Text>
-          <Pressable onPress={() => router.push('/(auth)/Login')}>
+          <Pressable onPress={() => router.push('/(auth)/Sign-up')}>
             <Text style={{ color: "#ffcc00", fontWeight: 'bold' }}>Sign up</Text>
           </Pressable>
         </View>

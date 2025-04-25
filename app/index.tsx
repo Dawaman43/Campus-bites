@@ -44,28 +44,12 @@ const App = () => {
             </Text>
           </Animatable.View>
 
-          <Animatable.View animation="fadeInUp" duration={1000} delay={400} className="w-full">
-            <TouchableOpacity
-              className="flex-row items-center bg-white rounded-full py-4 px-6 mb-4 shadow-lg shadow-black/30"
-              activeOpacity={0.7}
-            >
-              <Image
-                source={require('../assets/icons/google.png')}
-                className="w-6 h-6 mr-3"
-                resizeMode="contain"
-              />
-              <Text className="text-lg font-semibold text-gray-800 flex-1 text-center">
-                Login with Google
-              </Text>
-            </TouchableOpacity>
-          </Animatable.View>
-
-          {/* Email Login Button */}
+         
           <Animatable.View animation="fadeInUp" duration={1000} delay={600} className="w-full">
             <TouchableOpacity
               className="bg-orange-500 rounded-full py-4 px-6 shadow-lg shadow-black/30"
               activeOpacity={0.7}
-              onPress={() => router.push('/(auth)/Sign-in')}
+              onPress={() => router.push('/(auth)/Login')}
             >
               <Text className="text-lg font-semibold text-white text-center">
                 Login with Email
@@ -73,13 +57,13 @@ const App = () => {
             </TouchableOpacity>
           </Animatable.View>
 
-          {/* Sign Up Prompt */}
+          
           <Animatable.View animation="fadeIn" duration={1000} delay={800} className="mt-8">
             <Text className="text-gray-300">
               Don't have an account?{' '}
               <Text
                 className="text-orange-400 font-semibold"
-                onPress={() => router.push('/(auth)/Login')}
+                onPress={() => router.push('/(auth)/Sign-up')}
               >
                 Sign Up
               </Text>

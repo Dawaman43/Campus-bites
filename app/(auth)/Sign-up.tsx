@@ -4,6 +4,8 @@ import { useRouter } from 'expo-router';
 import Modal from 'react-native-modal';
 import { Ionicons } from '@expo/vector-icons';
 import { createUser } from '@/lib/appwrite';
+import { Picker } from '@react-native-picker/picker';
+
 
 const Signup = () => {
   const router = useRouter();
@@ -17,6 +19,9 @@ const Signup = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState('');
   const [isModalVisible, setModalVisible] = useState(false);
+
+  // State for user role selection
+  const [role, setRole] = useState('student'); // Default role is 'student'
 
   const handleSignup = async () => {
     if (!username || !email || !password || !confirmPassword) {
@@ -34,7 +39,8 @@ const Signup = () => {
     setIsSubmitting(true);
 
     try {
-      await createUser(email, password, username);
+      // Pass role along with other user details to the createUser function
+      await createUser(email, password, username, role);
       router.replace('/(auth)/Login');
     } catch (error: any) {
       setError(error.message || 'An error occurred during signup');
@@ -95,6 +101,21 @@ const Signup = () => {
           <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)} style={styles.eyeIcon}>
             <Ionicons name={showConfirmPassword ? 'eye-off' : 'eye'} size={24} color="gray" />
           </TouchableOpacity>
+        </View>
+
+        {/* Role Picker */}
+        <View style={styles.pickerContainer}>
+          <Text style={{ fontSize: 14, marginBottom: 10 }}>Select Role</Text>
+          <Picker
+            selectedValue={role}
+            style={styles.picker}
+            onValueChange={(itemValue) => setRole(itemValue)}
+          >
+            <Picker.Item label="Student" value="student" />
+            <Picker.Item label="Hotel Manager" value="hotel_manager" />
+            <Picker.Item label="Admin" value="admin" />
+            <Picker.Item label="Delivery" value="delivery" />
+          </Picker>
         </View>
 
         <TouchableOpacity
@@ -228,5 +249,18 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  pickerContainer: {
+    width: '85%',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 4,
+    marginBottom: 18,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
+  },
+  picker: {
+    height: 50,
+    width: '100%',
   },
 });
