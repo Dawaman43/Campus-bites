@@ -113,7 +113,6 @@ const Signup = () => {
           >
             <Picker.Item label="Student" value="student" />
             <Picker.Item label="Hotel Manager" value="hotel_manager" />
-            <Picker.Item label="Admin" value="admin" />
             <Picker.Item label="Delivery" value="delivery" />
           </Picker>
         </View>
