@@ -1,15 +1,12 @@
-import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native'
-import React from 'react'
-import { Tabs } from 'expo-router'
-import { images } from '@/constants/images'
-import { icons } from '@/constants/icons'
-
+import { ImageBackground, StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
+import { Tabs } from 'expo-router';
+import { images } from '@/constants/images';
+import { icons } from '@/constants/icons';
 import { StatusBar } from 'react-native';
 
-<StatusBar hidden={false} />
-
-
 const TabIcon = ({ focused, icon, title }: any) => {
+<<<<<<< HEAD
     if (focused) {
         return (
             <View
@@ -33,6 +30,20 @@ const TabIcon = ({ focused, icon, title }: any) => {
                 <Text style={{ color: '#fff', fontWeight: '600', marginLeft: 8 }}>{title}</Text>
             </View>
         );
+=======
+    if(focused){
+        return(
+            <ImageBackground 
+                                source={images.highlight2}
+                                className="flex flex-row w-full flex-1 
+                                min-w-[112px] min-h-16 mt-4 justify-center 
+                                items-center rounded-full overflow-hidden"
+                            >
+                                <Image source={icon} tintColor="#151312" className="size-5" />
+                                <Text className="text-white text-base font-semibold ml-2">{title}</Text>
+                            </ImageBackground>
+        )
+>>>>>>> 05e2958743f50eabaac63d88228f1b73631f0916
     }
 
     return (
@@ -72,54 +83,52 @@ const _Layout = () => {
 
             }
         }}
-    >
-        <Tabs.Screen 
-            name="index"
-            options={{
-                title: 'Home',
-                headerShown: false,
-                tabBarIcon: ({ focused }) => (
-                    <TabIcon 
-                        focused={focused}
-                        icon={icons.homeAgreement}
-                        title="Home"
-                    />
-                )
-            }}
+      >
+        <Tabs.Screen
+          name="home"
+          options={{
+          title: 'Home',
+          headerShown: false,
+           tabBarIcon: ({ focused }) => (
+           <TabIcon focused={focused} icon={icons.homeAgreement} title="Home" />
+              ),
+         }}
+       />
+
+        <Tabs.Screen
+          name="neworder"
+          options={{
+            title: 'New Order',
+            headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <TabIcon focused={focused} icon={icons.plus} title="New Order" />
+            ),
+          }}
         />
-        <Tabs.Screen 
-            name="neworder"
-            options={{
-                title: 'New Order',
-                headerShown: false,
-                tabBarIcon: ({ focused }) => (
-                    <TabIcon 
-                        focused={focused}
-                        icon={icons.plus}
-                        title="New Order"
-                    />
-                )
-            }}    
-        />
-        <Tabs.Screen 
-            name="contact"
-            options={{
-                title: 'Contact',
-                headerShown: false,
-                tabBarIcon: ({ focused }) => (
-                    <TabIcon 
-                        focused={focused}
-                        icon={icons.contact}
-                        title="Contact"
-                    />
-                )
-            }}    
+        <Tabs.Screen
+          name="contact"
+          options={{
+            title: 'Contact',
+            headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <TabIcon focused={focused} icon={icons.contact} title="Contact" />
+            ),
+          }}
         />
 
-    </Tabs>
-  )
-}
+      <Tabs.Screen
+          name="settings"
+          options={{
+            title: 'Settings',
+            headerShown: false,
+            tabBarIcon: ({ focused }) => (
+              <TabIcon focused={focused} icon={icons.settings} title="Settings" />
+            ),
+          }}
+        />
+      </Tabs>
+    
+  );
+};
 
-export default _Layout
-
-const styles = StyleSheet.create({})
+export default _Layout;

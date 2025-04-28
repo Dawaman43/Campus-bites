@@ -9,18 +9,19 @@ interface CardProps {
 const {width} = Dimensions.get('window')
 const Card: React.FC<CardProps> = ({ imageSource, text, fee }) => {
   return (
-    <View className="mr-5 rounded-lg mb-3">
-      <Image source={imageSource} style={styles.image} />
-      <Text className="mt-1 text-base text-gray-700">{text}</Text>
-      <Text className="text-xl font-bold text-gray-800">{fee} Birr</Text>
-    </View>
+      <View className="mr-3 rounded-xl mb-4 bg-[#2c2c2e] p-3 shadow-lg shadow-black/40">
+          <Image source={imageSource} style={styles.image} />
+          <Text className="mt-2 text-white font-semibold">{text}</Text>
+          <Text className="text-yellow-400 font-bold">{fee} Birr</Text>
+      </View>
+
   );
 };
 
 const styles = StyleSheet.create({
   image: {
-    width: 90,  // equivalent to w-28
-    height: 90, // equivalent to h-28
+    width: 80,  // equivalent to w-28
+    height: 80, // equivalent to h-28
     borderRadius: 8, // equivalent to rounded-lg
   },
 });
