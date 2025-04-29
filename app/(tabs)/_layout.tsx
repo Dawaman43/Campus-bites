@@ -6,7 +6,6 @@ import { icons } from '@/constants/icons';
 import { StatusBar } from 'react-native';
 
 const TabIcon = ({ focused, icon, title }: any) => {
-<<<<<<< HEAD
     if (focused) {
         return (
             <View
@@ -30,7 +29,8 @@ const TabIcon = ({ focused, icon, title }: any) => {
                 <Text style={{ color: '#fff', fontWeight: '600', marginLeft: 8 }}>{title}</Text>
             </View>
         );
-=======
+
+      }
     if(focused){
         return(
             <ImageBackground 
@@ -43,7 +43,7 @@ const TabIcon = ({ focused, icon, title }: any) => {
                                 <Text className="text-white text-base font-semibold ml-2">{title}</Text>
                             </ImageBackground>
         )
->>>>>>> 05e2958743f50eabaac63d88228f1b73631f0916
+
     }
 
     return (
@@ -56,6 +56,7 @@ const TabIcon = ({ focused, icon, title }: any) => {
         </View>
     );
 };
+
 
 
 const _Layout = () => {
@@ -130,5 +131,4 @@ const _Layout = () => {
     
   );
 };
-
 export default _Layout;
