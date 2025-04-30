@@ -22,7 +22,7 @@ export default function ContactTab() {
 
     return (
         <ScrollView>
-            <View className="flex-1 bg-gray-100 p-4">
+            <View className="flex-1 bg-gray-100 p-4 ">
             {/* Contact Info */}
             <Text className="text-2xl font-bold text-gray-800 mb-4">Contact Info</Text>
 
@@ -59,7 +59,7 @@ export default function ContactTab() {
             </View>
 
             {/* About Us */}
-            <View className="mb-4 bg-white rounded-xl p-4 shadow">
+            <View className="mb-4 bg-white rounded-xl p-4 shadow border-2 border-gray-200">
                 <Text className="text-2xl font-bold text-white mb-3 bg-green-500 p-2 rounded-xl text-center">About Us</Text>
                 <Text className="text-base text-gray-600 mb-3 font-semibold p-2 rounded-xl">
                     CampusBite is a student-powered food delivery service connecting dorms with fast, affordable, and homemade meals around campus.
@@ -75,11 +75,11 @@ export default function ContactTab() {
             </View>
 
             {/* Contact Form */}
-            <View className="bg-white rounded-xl p-4 mb-40">
+            <View className="bg-white rounded-xl p-4 mb-40 border-2 border-gray-200">
                 <Text className="text-2xl font-bold mb-4 text-gray-800">Send Us a Message</Text>
                 <Text className="text-lg mb-1 text-gray-700">Phone Number</Text>
                 <TextInput
-                    className="bg-white rounded-xl p-3 mb-3 shadow"
+                    className="bg-white rounded-xl p-3 mb-3 shadow border-2 border-gray-300"
                     value={phone}
                     onChangeText={setPhone}
                     placeholder="Enter your phone number"
@@ -88,7 +88,7 @@ export default function ContactTab() {
 
                 <Text className="text-lg mb-1 text-gray-700">Message</Text>
                 <TextInput
-                    className="bg-white rounded-xl p-3 mb-4 shadow"
+                    className="bg-white rounded-xl p-3 mb-4 shadow border-2 border-gray-300"
                     value={message}
                     onChangeText={setMessage}
                     placeholder="Enter your message"
