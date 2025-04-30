@@ -66,7 +66,7 @@ export default function Index() {
           paddingBottom: 10,
         }}
       >
-        <View className="bg-primary p-10 w-full h-60 mt-0 justify-end rounded-b-2xl">
+        <View className="bg-green-600 p-10 w-full h-60 mt-0 justify-end rounded-2xl">
           <View className="flex-row items-center justify-between">
             <Image
               className="w-36 h-36"
@@ -85,7 +85,7 @@ export default function Index() {
         </View>
         <BannerComponent />
         <View className="flex-1">
-          <Text className="font-bold text-2xl text-black-600 m-4 font-roboto">
+          <Text className="font-bold text-2xl text-black-600 my-2 font-roboto bg-green-600 p-2 rounded-lg">
             Morning Meal
           </Text>
           <View className="flex-1 flex-row flex-wrap gap-0">
@@ -122,7 +122,7 @@ export default function Index() {
           </View>
         </View>
         <View>
-          <Text className="font-bold text-2xl text-black-600 m-4 font-roboto">
+          <Text className="font-bold text-2xl text-black-600 my-2 font-roboto bg-green-600 p-2 rounded-lg">
             Afternoon Meal
           </Text>
           <View className="flex-1 flex-row flex-wrap gap-0">
@@ -184,7 +184,7 @@ export default function Index() {
           </View>
         </View>
         <View>
-          <Text className="font-bold text-2xl text-black-600 m-4 font-roboto">
+          <Text className="font-bold text-2xl text-black-600 my-2 font-roboto bg-green-600 p-2 rounded-lg">
             Evening Meal
           </Text>
           <View className="flex-1 flex-row flex-wrap gap-0">
