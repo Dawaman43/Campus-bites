@@ -12,9 +12,11 @@ and affordable meal access right from their smartphones.
 - 🍽️ Browse menus from various partner hotels
 - 🛒 Add meals to cart and place orders
 - 🚚 Track your delivery in real-time
-- 💳 Multiple payment options (Cash, Mobile Payment)
+- 💳 Multiple payment options ( Mobile Payment)
 - 🗂️ View order history
 - 🔒 Secure login & registration
+- 🌎 language English, Amaharic
+- 🌗 light dark mode
 
 ---
 
@@ -29,8 +31,8 @@ and affordable meal access right from their smartphones.
 ## ⚙️ Tech Stack
 
 - **Frontend**: React native
-- **Backend**: Django REST Framework ,firebase
-- **Database**: PostgreSQL,mysql
+- **Backend**: appwrite
+- **Database**: appwrite database
 - **Authentication**: Token-based authentication
 - **APIs**: Custom REST APIs
 
