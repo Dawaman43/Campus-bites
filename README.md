@@ -18,9 +18,10 @@ and affordable meal access right from their smartphones.
 
 ---
 
-## 📸 Screenshots
+# MOb Documentation 
 
-> _Coming soon:  screenshots or screen recordings  showing the UI._
+[campus bites mob new.docx](https://github.com/user-attachments/files/20010074/campus.bites.mob.new.md)
+
 
 ---
 
@@ -32,14 +33,6 @@ and affordable meal access right from their smartphones.
 - **Authentication**: Token-based authentication
 - **APIs**: Custom REST APIs
 
----
 
-## 🛠️ Getting Started
-
-### Prerequisites
-
-  _Coming soon:
-
-### Installation
 
 
