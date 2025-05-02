@@ -19,8 +19,9 @@ and affordable meal access right from their smartphones.
 ---
 
 # MOb Documentation 
+[campus bites mob new.docx](https://github.com/user-attachments/files/20010142/campus.bites.mob.new.docx)
 
-[campus bites mob new.docx](https://github.com/user-attachments/files/20010074/campus.bites.mob.new.md)
+
 
 
 ---
