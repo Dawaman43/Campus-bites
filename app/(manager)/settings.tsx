@@ -325,3 +325,330 @@ const Settings = () => {
       <Text className={`text-2xl font-roboto-bold mb-4 ${isDarkTheme ? 'text-white' : 'text-orange-500'}`}>
         {t('profile')}
       </Text>
+       <View className="mb-4">
+        <View className="flex-row justify-between items-center">
+          <Text className={`text-lg font-roboto-medium ${isDarkTheme ? 'text-gray-200' : 'text-gray-700'}`}>
+            {t('username')}
+          </Text>
+          <Ionicons name="person-outline" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} />
+        </View>
+        {isEditingUsername ? (
+          <View className="flex-row items-center mt-2">
+            <TextInput
+              className={`flex-1 border ${isDarkTheme ? 'border-gray-600 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'} rounded-lg p-2 mr-2`}
+              value={newUsername}
+              onChangeText={setNewUsername}
+              placeholder={t('enterUsername')}
+              placeholderTextColor={isDarkTheme ? '#9ca3af' : '#d1d5db'}
+              accessibilityLabel={t('enterUsername')}
+            />
+            <TouchableOpacity
+              className="bg-orange-500 rounded-lg p-2"
+              onPress={handleUpdateUsername}
+              disabled={isSubmitting}
+              accessibilityLabel={t('saveUsername')}
+            >
+              <Ionicons name="checkmark" size={24} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="bg-gray-500 rounded-lg p-2 ml-2"
+              onPress={() => setIsEditingUsername(false)}
+              accessibilityLabel={t('cancelEdit')}
+            >
+              <Ionicons name="close" size={24} color="white" />
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <TouchableOpacity
+            className="flex-row justify-between items-center p-2"
+            onPress={() => setIsEditingUsername(true)}
+            accessibilityLabel={t('editUsername')}
+          >
+            <Text className={`text-base ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+              {user?.username || t('setUsername')}
+            </Text>
+            <Ionicons name="pencil" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} />
+          </TouchableOpacity>
+        )}
+      </View>
+
+      <View className="mb-4">
+        <View className="flex-row justify-between items-center">
+          <Text className={`text-lg font-roboto-medium ${isDarkTheme ? 'text-gray-200' : 'text-gray-700'}`}>
+            {t('email')}
+          </Text>
+          <Ionicons name="mail-outline" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} />
+        </View>
+        {isEditingEmail ? (
+          <View className="flex-row items-center mt-2">
+            <TextInput
+              className={`flex-1 border ${isDarkTheme ? 'border-gray-600 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'} rounded-lg p-2 mr-2`}
+              value={newEmail}
+              onChangeText={setNewEmail}
+              placeholder={t('enterEmail')}
+              placeholderTextColor={isDarkTheme ? '#9ca3af' : '#d1d5db'}
+              keyboardType="email-address"
+              accessibilityLabel={t('enterEmail')}
+            />
+            <TouchableOpacity
+              className="bg-orange-500 rounded-lg p-2"
+              onPress={handleUpdateEmail}
+              disabled={isSubmitting}
+              accessibilityLabel={t('saveEmail')}
+            >
+              <Ionicons name="checkmark" size={24} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="bg-gray-500 rounded-lg p-2 ml-2"
+              onPress={() => setIsEditingEmail(false)}
+              accessibilityLabel={t('cancelEdit')}
+            >
+              <Ionicons name="close" size={24} color="white" />
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <TouchableOpacity
+            className="flex-row justify-between items-center p-2"
+            onPress={() => setIsEditingEmail(true)}
+            accessibilityLabel={t('editEmail')}
+          >
+            <Text className={`text-base ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+              {user?.email || t('setEmail')}
+            </Text>
+            <Ionicons name="pencil" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} />
+          </TouchableOpacity>
+        )}
+      </View>
+
+      <Text className={`text-2xl font-roboto-bold mb-4 ${isDarkTheme ? 'text-white' : 'text-orange-500'}`}>
+        {t('preferences')}
+      </Text>
+
+      <View className="flex-row justify-between items-center mb-4">
+        <View className="flex-row items-center">
+          <Ionicons name="moon-outline" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} className="mr-2" />
+          <Text className={`text-lg font-roboto-medium ${isDarkTheme ? 'text-gray-200' : 'text-gray-700'}`}>
+            {t('darkMode')}
+          </Text>
+        </View>
+        <Switch
+          value={isDarkTheme}
+          onValueChange={toggleTheme}
+          thumbColor={isDarkTheme ? '#f97316' : '#f4f4f5'}
+          trackColor={{ false: '#d1d5db', true: '#fb923c' }}
+          accessibilityLabel={t('toggleDarkMode')}
+        />
+      </View>
+
+      <View className="mb-4">
+        <View className="flex-row justify-between items-center">
+          <View className="flex-row items-center">
+            <Ionicons name="notifications-outline" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} className="mr-2" />
+            <Text className={`text-lg font-roboto-medium ${isDarkTheme ? 'text-gray-200' : 'text-gray-700'}`}>
+              {t('notifications')}
+            </Text>
+          </View>
+        </View>
+        <View className="mt-2">
+          {Object.keys(notifications).map(key => (
+            <View key={key} className="flex-row justify-between items-center p-2">
+              <Text className={`text-base ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+                {t(key)}
+              </Text>
+              <Switch
+                value={notifications[key as keyof typeof notifications]}
+                onValueChange={() => toggleNotification(key as keyof typeof notifications)}
+                thumbColor={notifications[key as keyof typeof notifications] ? '#f97316' : '#f4f4f5'}
+                trackColor={{ false: '#d1d5db', true: '#fb923c' }}
+                accessibilityLabel={`${t('toggle')} ${t(key)}`}
+              />
+            </View>
+          ))}
+        </View>
+      </View>
+
+      <View className="mb-4">
+        <View className="flex-row justify-between items-center">
+          <View className="flex-row items-center">
+            <Ionicons name="language-outline" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} className="mr-2" />
+            <Text className={`text-lg font-roboto-medium ${isDarkTheme ? 'text-gray-200' : 'text-gray-700'}`}>
+              {t('language')}
+            </Text>
+          </View>
+        </View>
+        <View className="flex-row mt-2">
+          {(['en', 'am'] as const).map(lang => (
+            <TouchableOpacity
+              key={lang}
+              className={`flex-1 p-2 rounded-lg mr-2 ${language === lang ? 'bg-orange-500' : isDarkTheme ? 'bg-gray-800' : 'bg-gray-200'}`}
+              onPress={() => {
+                console.log('Changing language to:', lang);
+                setLanguage(lang);
+                setModalMessage(`${t('languageSuccess')} ${t(lang)}`);
+                setIsError(false);
+                setModalVisible(true);
+              }}
+              accessibilityLabel={`${t('setLanguage')} ${t(lang)}`}
+            >
+              <Text className={`text-center ${language === lang ? 'text-white' : isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+                {t(lang)}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      <Text className={`text-2xl font-roboto-bold mb-4 ${isDarkTheme ? 'text-white' : 'text-orange-500'}`}>
+        {t('security')}
+      </Text>
+
+      <View className="mb-4">
+        <View className="flex-row justify-between items-center">
+          <View className="flex-row items-center">
+            <Ionicons name="lock-closed-outline" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} className="mr-2" />
+            <Text className={`text-lg font-roboto-medium ${isDarkTheme ? 'text-gray-200' : 'text-gray-700'}`}>
+              {t('password')}
+            </Text>
+          </View>
+        </View>
+        {isEditingPassword ? (
+          <View className="flex-row items-center mt-2">
+            <TextInput
+              className={`flex-1 border ${isDarkTheme ? 'border-gray-600 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'} rounded-lg p-2 mr-2`}
+              value={newPassword}
+              onChangeText={setNewPassword}
+              placeholder={t('enterPassword')}
+              placeholderTextColor={isDarkTheme ? '#9ca3af' : '#d1d5db'}
+              secureTextEntry
+              accessibilityLabel={t('enterPassword')}
+            />
+            <TouchableOpacity
+              className="bg-orange-500 rounded-lg p-2"
+              onPress={handleUpdatePassword}
+              disabled={isSubmitting}
+              accessibilityLabel={t('savePassword')}
+            >
+              <Ionicons name="checkmark" size={24} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              className="bg-gray-500 rounded-lg p-2 ml-2"
+              onPress={() => setIsEditingPassword(false)}
+              accessibilityLabel={t('cancelEdit')}
+            >
+              <Ionicons name="close" size={24} color="white" />
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <TouchableOpacity
+            className="flex-row justify-between items-center p-2"
+            onPress={() => setIsEditingPassword(true)}
+            accessibilityLabel={t('changePassword')}
+          >
+            <Text className={`text-base ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+              {t('changePassword')}
+            </Text>
+            <Ionicons name="pencil" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} />
+          </TouchableOpacity>
+        )}
+      </View>
+
+      <Text className={`text-2xl font-roboto-bold mb-4 ${isDarkTheme ? 'text-white' : 'text-orange-500'}`}>
+        {t('account')}
+      </Text>
+
+      <View className="flex-row justify-between items-center mb-4">
+        <View className="flex-row items-center">
+          <Ionicons name="eye-outline" size={20} color={isDarkTheme ? '#d1d5db' : '#4b5563'} className="mr-2" />
+          <Text className={`text-lg font-roboto-medium ${isDarkTheme ? 'text-gray-200' : 'text-gray-700'}`}>
+            {t('publicProfile')}
+          </Text>
+        </View>
+        <Switch
+          value={isPublicProfile}
+          onValueChange={toggleProfileVisibility}
+          thumbColor={isPublicProfile ? '#f97316' : '#f4f4f5'}
+          trackColor={{ false: '#d1d5db', true: '#fb923c' }}
+          accessibilityLabel={t('toggleProfileVisibility')}
+        />
+      </View>
+
+      <TouchableOpacity
+        className={`bg-orange-500 rounded-lg py-4 px-6 mb-4 ${isSubmitting ? 'opacity-60' : ''}`}
+        onPress={handleLogout}
+        disabled={isSubmitting}
+        accessibilityLabel={t('logout')}
+      >
+        <Text className="text-white text-lg font-roboto-bold text-center">
+          {t('logout')}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        className="bg-red-500 rounded-lg py-4 px-6 mb-10"
+        onPress={() => {
+          setModalMessage(t('deleteAccountPrompt'));
+          setIsError(true);
+          setModalVisible(true);
+        }}
+        accessibilityLabel={t('deleteAccount')}
+      >
+        <Text className="text-white text-lg font-roboto-bold text-center">
+          {t('deleteAccount')}
+        </Text>
+      </TouchableOpacity>
+
+      <Modal
+        isVisible={isModalVisible}
+        onBackdropPress={() => setModalVisible(false)}
+        animationIn="zoomIn"
+        animationOut="zoomOut"
+        className="m-5"
+      >
+        <View className={`bg-white rounded-xl p-6 items-center ${isDarkTheme ? 'bg-gray-800' : 'bg-white'}`}>
+          <Ionicons
+            name={isError ? 'alert-circle' : 'checkmark-circle'}
+            size={40}
+            color={isError ? '#ff4444' : '#00cc00'}
+          />
+          <Text className={`text-xl font-roboto-bold mt-4 ${isDarkTheme ? 'text-white' : 'text-gray-800'}`}>
+            {isError ? t('confirmation') : t('success')}
+          </Text>
+          <Text className={`text-base text-center my-4 max-w-md ${isDarkTheme ? 'text-gray-300' : 'text-gray-600'}`}>
+            {modalMessage}
+          </Text>
+          <View className="flex-row">
+            <TouchableOpacity
+              className="bg-orange-500 rounded-lg py-2 px-6"
+              onPress={() => {
+                setModalVisible(false);
+                if (!isError && modalMessage.includes(t('success'))) {
+                  if (modalMessage.includes(t('logoutSuccess')) || modalMessage.includes(t('deleteAccountSuccess'))) {
+                    router.replace('/(auth)/Login');
+                  }
+                } else if (modalMessage === t('deleteAccountPrompt')) {
+                  handleDeleteAccount();
+                }
+              }}
+              accessibilityLabel={modalMessage === t('deleteAccountPrompt') ? t('confirmDelete') : t('closeModal')}
+            >
+              <Text className="text-white font-roboto-bold">
+                {modalMessage === t('deleteAccountPrompt') ? t('confirm') : 'OK'}
+              </Text>
+            </TouchableOpacity>
+            {modalMessage === t('deleteAccountPrompt') && (
+              <TouchableOpacity
+                className="bg-gray-500 rounded-lg py-2 px-6 ml-2"
+                onPress={() => setModalVisible(false)}
+                accessibilityLabel={t('cancelDelete')}
+              >
+                <Text className="text-white font-roboto-bold">{t('cancel')}</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+      </Modal>
+    </ScrollView>
+  );
+};
+
+export default Settings;
